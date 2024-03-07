@@ -1,0 +1,31 @@
+.App {
+  text-align: center;
+}
+
+.Welcome_message{
+  text-align: center;
+}
+
+.controler-button{
+  margin: 40px;
+  width: 100px;
+  height: 80px;
+  border-radius: 20px;
+  background-color:palegreen;
+}
+
+.managing-buttons-container{
+  margin: 40px;
+  width: 100px;
+  height: 80px;
+  border-radius: 20px;
+  background-color:palegreen;
+}
+
+.controlers-buttons-container{
+  margin: 40px;
+  width: 100px;
+  height: 80px;
+  border-radius: 20px;
+  background-color:palegreen;
+}
