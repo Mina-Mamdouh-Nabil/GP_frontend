@@ -1,56 +1,45 @@
-import React, { useState, useEffect } from 'react';
-import MonumentCard from './MonumentCard'; // Assume you have a MonumentCard component
-import Slider from './Slider'; // Assume you have a Slider component
-import StarRating from './StarRating'; // Assume you have a StarRating component
-import './MonumentsPage.css';
+import React, { useState } from "react";
+import "./MonumentsPage.css";
 
-const MonumentsPage = () => {
-  // State to store monuments data
-  const [monuments, setMonuments] = useState([]);
+const MonumentsPage = ({ monuments }) => {
+  const [currentMonumentIndex, setCurrentMonumentIndex] = useState(0);
 
-  // Function to fetch monuments data
-  const fetchMonumentsData = () => {
-    // Implement your data fetching logic here (e.g., fetch from an API)
-    // Example:
-    // fetch('https://api.example.com/monuments')
-    //   .then(response => response.json())
-    //   .then(data => setMonuments(data))
-    //   .catch(error => console.error('Error fetching monuments:', error));
-  };
-
-  // useEffect hook to fetch monuments data on component mount
-  useEffect(() => {
-    fetchMonumentsData();
-  }, []);
-
-  // Function to handle rating change
-  const handleRatingChange = (monumentId, newRating) => {
-    // Implement logic to update the monument's rating
-    // Example:
-    // const updatedMonuments = monuments.map(monument => {
-    //   if (monument.id === monumentId) {
-    //     return { ...monument, rating: newRating };
-    //   }
-    //   return monument;
-    // });
-    // setMonuments(updatedMonuments);
+  const handleSliderChange = (event) => {
+    setCurrentMonumentIndex(parseInt(event.target.value, 10));
   };
 
   return (
     <div className="monuments-page">
       <h1>Monuments</h1>
-      <div className="monument-cards">
-        {monuments.map(monument => (
-          <div key={monument.id}>
-            <MonumentCard monument={monument} />
-            <Slider />
-            <StarRating
-              value={monument.rating}
-              onChange={newRating => handleRatingChange(monument.id, newRating)}
-            />
-          </div>
-        ))}
+      <div className="slider-container">
+        <input
+          type="range"
+          min={0}
+          max={monuments.length - 1}
+          value={currentMonumentIndex}
+          onChange={handleSliderChange}
+          className="slider"
+        />
       </div>
+      {monuments.length > 0 && (
+        <div className="monument-card">
+          <h2>{monuments[currentMonumentIndex].name}</h2>
+          <p>{monuments[currentMonumentIndex].description}</p>
+          <p>Location: {monuments[currentMonumentIndex].location}</p>
+          <div className="rating">
+            {[...Array(5)].map((_, index) => (
+              <span
+                key={index}
+                className={
+                  index < monuments[currentMonumentIndex].rating ? "filled" : ""
+                }
+              >
+                &#9733;
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

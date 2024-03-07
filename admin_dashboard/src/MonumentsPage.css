@@ -1,9 +1,32 @@
 .monuments-page {
+    text-align: center;
     padding: 20px;
   }
   
-  .monument-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
+  .slider-container {
+    margin-bottom: 20px;
+  }
+  
+  .slider {
+    width: 80%;
+  }
+  
+  .monument-card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 500px;
+  }
+  
+  .rating {
+    font-size: 24px;
+  }
+  
+  .rating span {
+    color: #ffd700;
+  }
+  
+  .rating span.filled {
+    color: #f4c842;
   }
