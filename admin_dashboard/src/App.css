@@ -2,40 +2,4 @@
   text-align: center;
 }
 
-.admin-forms-container {
-  display: flex;
-  justify-content: center;
-}
-
-.admin-form-container {
-  background-color: lavender;
-  padding: 20px;
-  border-radius: 30px;
-  width: 300px;
-  margin: 20px;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 8px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-button {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  background-color: #4caf50;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: lightcoral;
-}
 
